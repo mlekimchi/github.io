@@ -73,7 +73,7 @@ $$E[Y] = \bar{y} = \int_{-\infty} ^{\infty} y * f_Y(y; \theta) dy$$
 [Is likelihood a conditional probability?](https://www.quora.com/Is-likelihood-a-conditional-probability): Likelihood for a set of specific parameters is a conditional probability
 
 
-'''
+```python
 # This Python 3 environment comes with many helpful analytics libraries installed
 # It is defined by the kaggle/python Docker image: https://github.com/kaggle/docker-python
 # For example, here's several helpful packages to load
@@ -459,4 +459,4 @@ print(f'b1-hat: {b_hat[0]} \nb2-hat: {b_hat[1]} \nb3-hat: {b_hat[2]} \nb4-hat: {
 
 dataset_no_int=aov_table(x,y,b_hat, 4,False)
 dataset_no_int.summary()
-'''
+```
