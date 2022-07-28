@@ -14,7 +14,7 @@ The ```aov_table()``` class creates takes in your linear model and estimators an
 I also wrote the function ```meanCI()``` to test individual regressors (t-test) for your linear model. It uses values calculated with ```aov_table()``` and gives you the t-score, (1-$\alpha$)% CI, and hypothesis conclusion.
 
 ### Thoughts?
-I used ```statsmodels``` to cross check my code. I much prefer ```statsmodels``` over my stuff because it is so much more readable! If I have time, maybe I can play around with the output format. I really enjoyed practicing Python, specifically how to build a class and work with ```fstrings```. I also gained a much deeper understanding of sums of squares which had always been nebulously floating around in my head.
+I used ```statsmodels``` to cross check my code. I much prefer ```statsmodels``` over my stuff because it is so much more readable! If I have time, maybe I can play around with the output format. I really enjoyed practicing Python, specifically building a class and working with ```fstrings```. I also gained a much deeper understanding of sums of squares which had always been nebulously floating around in my head.
 
 # Example and Code
 ```python
