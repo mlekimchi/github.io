@@ -10,7 +10,7 @@ For statistical modeling in Python, use ```SciPy``` and ```statsmodels```. For m
 ### ```aov_table()``` Analysis of variance: overal model adequacy
 ```aov_table()``` class creates takes in your linear model and estimators and prints an ANOVA table. ```aov_table()``` gives you the values and degrees of freedom for the sums of squares, mean sums of squares, F-statistic, and R$^2$/R$^2_{adjust}$. You can also run the class functions to pull out specific values from the table. You can also specify whether in include the intercept in the analysis.
 
-### ```meanCI()`` Hypothesis testing with t-distribution: individual regressor significance
+### ```meanCI()``` Hypothesis testing with t-distribution: individual regressor significance
 I also wrote the function ```meanCI()``` to test individual regressors (t-test) for your linear model. It uses values calculated with ```aov_table()``` and gives you the t-score, (1-$\alpha$)% CI, and hypothesis conclusion.
 
 ### Thoughts?
