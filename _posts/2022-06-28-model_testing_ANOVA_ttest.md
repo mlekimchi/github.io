@@ -1,7 +1,7 @@
 ---
 layout: post
 title: I wrote code for an *inferior* ANOVA table and t-test in Python
-published: false
+published: true
 comments: true
 ---
 
