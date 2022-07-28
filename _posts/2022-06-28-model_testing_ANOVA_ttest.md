@@ -16,9 +16,10 @@ I also wrote the function ```meanCI()``` to test individual regressors (t-test) 
 ### Thoughts?
 I used ```statsmodels``` to cross check my code. I much prefer ```statsmodels``` over my stuff because it is so much more readable! If I have time, maybe I can play around with the output format. I really enjoyed practicing Python, specifically building a class and working with ```fstrings```. I also gained a much deeper understanding of sums of squares which had always been nebulously floating around in my head.
 
-### Example and Code
+## Example and Code
 See my [Kaggle workbook](https://www.kaggle.com/code/emilykchang/ra-hw5-6) for the code and an example :)
 
+### Code for analysis of variance object
 ```python 
 class aov_table:
     def __init__(self, X, y, B_hat, nregressors, intercept):
@@ -147,4 +148,63 @@ class aov_table:
         F-statistic           F0              F_crit(alpha=0.05, df={self.k}, {n-self.k-1})
         MS_R / MS_resid       {round(f,2)}            {round(f_crit,2)}
         ''')
+```
+
+### Code for testing significance of individual regressors
+
+```python
+# Calculate 95% CI for beta_1
+
+'''
+beta1-hat +- (t*) (sqrt(sigma-hat^2 Cjj) ) 
+sigma-hat^2 = MS_res = dataset.MS_res()
+Cjj = inv(X.T * X)
+'''
+
+def meanCI(X,beta,j,alpha):
+    
+    import scipy.stats
+    
+    Cjj=np.linalg.inv(np.matmul(X.T,X))[j][j]
+    sigma_hat_2 = dataset.MS_res()
+    se_Beta_j = np.sqrt(sigma_hat_2*Cjj)
+    beta_hat = beta[j]
+    degreefreedom=len(X)-9-1
+    t_crit = np.abs(scipy.stats.t.ppf(q=1-alpha/2,df=degreefreedom))
+    
+    t0=float(beta_hat)/se_Beta_j
+    rejecto = np.abs(t0)>t_crit
+    conclusion = 'reject H0'
+    if rejecto == False:
+        conclusion = 'fail to reject H0'
+    
+    lower = float(beta_hat - t_crit * se_Beta_j)
+    upper = float(beta_hat + t_crit* se_Beta_j)
+    
+    print(f'''
+    --------------------------------------------
+    Hypothesis test
+    --------------------------------------------
+    H0: beta{j} = 0
+    H1: beta{j} != 0
+
+    beta_hat{i} = {round(float(beta_hat),3)}
+    se(Beta{i}) = {round(se_Beta_j,3)}
+    
+    t0 = beta_hat/se(beta_hat) = {round(t0,3)}
+    t_crit = {round(t_crit,3)} for alpha = {alpha}, df = {degreefreedom}
+    
+    |t0| > t_crit is {rejecto} ---> {conclusion}''')
+    
+    print(f'''
+    --------------------------------------------
+    Confidence Interval
+    --------------------------------------------
+    {1-alpha} Confidence interval for Beta{j}
+    beta_hat +/- t_crit * se(Beta_j)
+    
+    lower: {round(lower,3)}, upper: {round(upper,3)}
+    ''')
+
+    return conclusion
 ```
