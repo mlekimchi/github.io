@@ -5,7 +5,7 @@ published: false
 comments: true
 ---
 
-For statistical modeling in Python, use ```SciPy``` and ```statsmodels```. For my linear regression class, I misheard that we had to do the variance analysis without any built-in or external packages...by hand! so I wrote an analysis of variance class ``aov_table()``` and a t-test function ```meanCI()``` to test the significance of a regression and significance of individual regressors. As the title says, my stuff is inferior to the standard packages lol
+You should definitely use ```SciPy``` and ```statsmodels``` for statistical modeling in Python. For my linear regression class, I misheard that we had to do the variance analysis without any built-in or external packages...by hand! so I wrote an analysis of variance class ``aov_table()``` and a t-test function ```meanCI()``` to test the significance of a regression and significance of individual regressors. As the title says, my stuff is inferior to the standard packages lol
 
 ### ```aov_table()``` Analysis of variance: overal model adequacy
 ```aov_table()``` class creates takes in your linear model and estimators and prints an ANOVA table. ```aov_table()``` gives you the values and degrees of freedom for the sums of squares, mean sums of squares, F-statistic, and R$^2$/R$^2_{adjust}$. You can also run the class functions to pull out specific values from the table. You can also specify whether in include the intercept in the analysis.
