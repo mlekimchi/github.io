@@ -7,52 +7,16 @@ comments: true
 
 For statistical modeling in Python, use ```SciPy``` and ```statsmodels```. For my linear regression class, I misheard that we had to do the variance analysis without any built-in or external packages...by hand! so I wrote an analysis of variance class ``aov_table()``` and a t-test function ```meanCI()``` to test the significance of a regression and significance of individual regressors. As the title says, my stuff is inferior to the standard packages lol
 
+### ```aov_table()``` Analysis of variance: overal model adequacy
 ```aov_table()``` class creates takes in your linear model and estimators and prints an ANOVA table. ```aov_table()``` gives you the values and degrees of freedom for the sums of squares, mean sums of squares, F-statistic, and R$^2$/R$^2_{adjust}$. You can also run the class functions to pull out specific values from the table. You can also specify whether in include the intercept in the analysis.
 
+### ```meanCI()`` Hypothesis testing with t-distribution: individual regressor significance
 I also wrote the function ```meanCI()``` to test individual regressors (t-test) for your linear model. It uses values calculated with ```aov_table()``` and gives you the t-score, (1-$\alpha$)% CI, and hypothesis conclusion.
 
+### Thoughts?
 I used ```statsmodels``` to cross check my code. I much prefer ```statsmodels``` over my stuff because it is so much more readable! If I have time, maybe I can play around with the output format. I really enjoyed practicing Python, specifically how to build a class and work with ```fstrings```. I also gained a much deeper understanding of sums of squares which had always been nebulously floating around in my head.
 
-```python
-if (python code):
-  put it here
-```
-# $$\hskip-0mm\boldsymbol{\hat{\hskip1mm\theta}}$$
-Additionally, we want to find the parameter value that maximizes the likelihood. In this example, we numerically calculated the likelihood for different estimators for mean and standard deviation. Each iteration, we refined the parameters until the change in previous and current likelihood was zero.
-
-To maximize $$\theta$$ empirically, we find where the change in the likelihood function is zero, i.e., where $$ \frac{d}{d\theta} \mathcal{L}(\theta)=0$$
-
-Likelihood is the probability of the entire dataset for a specific parameter value. So to write the likelihood function $$\mathcal{L}(\theta)$$, we multiply the probability of each data for variable $$\theta$$.
-
-$$\mathcal{L} (\theta) = \prod_{data}^{\infty} pdf$$ (data; $$\theta$$)
-
-Once you have a likelihood function, you can use some logarithm magic to separate the product into sums to simplify the derivative process.
-
-# When $$\mathcal{L} (\theta)$$ does not have a finite maximum
-
-If the likelihood function does not have a finite maximum, we cannot calculate $$\hat{\theta}$$. In this case, we can use order statistics.
-
-### Order Statistics
-
-I just learned about order statistics. Basicially, you sample $$n$$ times from a distribution $$Y$$ and then order the sample $$y_i$$'s in ascending order:
-
-$$ y_1, y_2, y_3, ...y_n \quad \text{ for }y_i \le y_{i+1} $$
-
-We can build a new distribution for the probabilities of the $$i$$th largest number in the sample, $$Y ^{\prime} _{i}$$. For a sample of size $$n$$, the distribution of the smallest value in  is $$Y^{\prime} _{min}$$, the second smallest is $$Y ^{\prime} _{2} $$,...the distribution of largest value in a sample $$n$$ would be $$Y ^{\prime} _{n}$$.
-
-In this case, $$ \hat{ \theta}$$ will be either $$y_{min}$$ or $$y_{max}$$ depending on the likelihood function. In the example from Larsen below, we can see the $$\mathcal{L} (\theta)$$ is maximized by $$y_{min}$$.
-
-![Larsen Figure 5.2.1](../img/Larsen_fig5_2_1.png)
-
-# A simpler method: Method of Moments
-
-The first moment is the expected value which is also the average $$\bar{y}$$. We can calculate $$\bar{y}$$ in terms of $$\theta$$. Solving for $$\theta$$, we get the maximum likelihood parameter:
-
-$$E[Y] = \bar{y} = \int_{-\infty} ^{\infty} y * f_Y(y; \theta) dy$$
-
-
-
-
+# Example and Code
 ```python
 # This Python 3 environment comes with many helpful analytics libraries installed
 # It is defined by the kaggle/python Docker image: https://github.com/kaggle/docker-python
