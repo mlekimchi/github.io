@@ -1,30 +1,17 @@
 ---
 layout: post
-title: MLE, my notes on estimation
+title: I wrote code for an *inferior* ANOVA table and t-test in Python
 published: false
 comments: true
 ---
 
-In my stat's class, we are using Larsen's 6th edition of `An Introduction to Mathematical Statistics and Its Applications.` This week, we are doing chapter 5, estimators. If you want a good rundown of MLE, there are tons of other resources at the end of this post.
+For statistical modeling in Python, use ```SciPy``` and ```statsmodels```. For my linear regression class, I misheard that we had to do the variance analysis without any built-in or external packages...by hand! so I wrote an analysis of variance class ``aov_table()``` and a t-test function ```meanCI()``` to test the significance of a regression and significance of individual regressors. As the title says, my stuff is inferior to the standard packages lol
 
-# Likelihood Function v. Probability Function
-Last semester, we did a lot of exploration with the [iris dataset](https://www.kaggle.com/datasets/uciml/iris). Briefly, the iris dataset contains data on 150 iris flowers. There are 3 different species of flowers (50 of each iris species) and each flower has 4 measurements/features (petal width/length, sepal width/length). We played with different ways to cluster the iris by species by looking at the more distinguishable features. *Spoiler, petal length and petal width varies the most between iris species!*
+```aov_table()``` class creates takes in your linear model and estimators and prints an ANOVA table. ```aov_table()``` gives you the values and degrees of freedom for the sums of squares, mean sums of squares, F-statistic, and R$^2$/R$^2_{adjust}$. You can also run the class functions to pull out specific values from the table. You can also specify whether in include the intercept in the analysis.
 
-One clustering method we used was Gaussian Mixture Models (GMM). The whole dataset was the sum of 3 different iris species so our GMM was the sum of 3 normal distributions. To write the normal distribution for each of the iris species, all you need is the mean and standard deviation for each species. Lastly, you use the GMM to calculate the likelihood of the each data of being each of the 3 species and sort the data into the species with the highest likelihood.
+I also wrote the function ```meanCI()``` to test individual regressors (t-test) for your linear model. It uses values calculated with ```aov_table()``` and gives you the t-score, (1-$\alpha$)% CI, and hypothesis conclusion.
 
-One could simply calculate parameter values for the species' distributions but we took it one step more and wanted to find the *best* estimators for mean and standard deviation! We used expectation maximization, a method that uses the data to calculate the conditional probability of the species cluster using estimated parameters. The algorithm cycles, modifying the parameters until the probability converges.
-
-$$P(species|data)=\frac{P(species) * \left(pdf \text{ of species with estimated parameters}\right)}{P(data)}$$
-
-![Iris dataset: clustering with GMM and EM](../img/GMM_EM.png)
-
-While I was writing up the homework, I found myself interchanging "probability" and "likelihood." I had taken stats before, but even so, I could not quite remember the distinction between likelihood and probability!
-
-To put shortly:
-
-> Likelihood function: how likely is the hypothesis for varying parameter values given this data?
-> 
-> Probability function: probability for the data, given the hypothesis
+I used ```statsmodels``` to cross check my code. I much prefer ```statsmodels``` over my stuff because it is so much more readable! If I have time, maybe I can play around with the output format. I really enjoyed practicing Python, specifically how to build a class and work with ```fstrings```. I also gained a much deeper understanding of sums of squares which had always been nebulously floating around in my head.
 
 ```python
 if (python code):
