@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Math notation: infix, prefix, postfix
+title: Math notation--infix, prefix, postfix
 published: true
 comments: true
 ---
