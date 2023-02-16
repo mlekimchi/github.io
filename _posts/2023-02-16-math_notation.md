@@ -17,4 +17,4 @@ In my data structures class, I learned about prefix and postfix notation. The pr
 
 | Postfix     | Infix       |  Prefix     |
 | ----------- | ----------- | ----------- |
-| AB+C*       | (A+B)*C)    | *+ABC       |
+| AB+C*       | (A+B)*C   | *+ABC       |
