@@ -1,0 +1,14 @@
+---
+layout: post
+title: Math notation: infix, prefix, postfix
+published: false
+comments: true
+---
+
+My friend said he had created his own math notation! His notation worked perfectly for him but was unreadable for others. I thought that was genius and wild that he had invented his own way of writing math. I can't imagine writing expressions in any other way!
+
+Turns out, there are other ways.
+
+Our standard notation is called infix. We use parenthesis to indicate the order of operations. Operators are between the two operands.
+
+```(A+B)*C)```
