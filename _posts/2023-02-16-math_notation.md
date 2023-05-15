@@ -18,3 +18,5 @@ In my data structures class, I learned about prefix and postfix notation. The pr
 | Postfix     | Infix       |  Prefix     |
 | ----------- | ----------- | ----------- |
 | ```AB+C*```       | ```(A+B)*C```   | ```*+ABC```       |
+
+We used stacks to read translate x-fix expressions into y-fix expressions. Here is a great calculator which shows how to push/pop from the stack, [Prefix-Postfix Converter by raj457036](https://raj457036.github.io/Simple-Tools/prefixAndPostfixConvertor.html)
