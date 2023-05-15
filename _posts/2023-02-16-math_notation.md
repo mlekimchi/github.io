@@ -11,7 +11,7 @@ Turns out, there are other ways.
 
 Our standard notation is called infix. We use parenthesis to indicate the order of operations. Operators are between the two operands.
 
-```(A+B)*C)```
+```(A+B)*C```
 
 In my data structures class, I learned about prefix and postfix notation. The pre/post refers to the location of the operator and allows you to write expressions without delimiters.
 
