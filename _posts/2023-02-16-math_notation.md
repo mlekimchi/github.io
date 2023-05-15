@@ -20,6 +20,7 @@ In my data structures class, I learned about prefix and postfix notation. The pr
 | ----------- | ----------- | ----------- |
 | ```AB+C*```       | ```(A+B)*C```   | ```*+ABC```       |
 
+### Lab
 For a lab, we used stacks to read translate x-fix expressions into y-fix expressions. Here is a great calculator which shows how to push/pop from the stack, [Prefix-Postfix Converter by raj457036](https://raj457036.github.io/Simple-Tools/prefixAndPostfixConvertor.html).
 
 This lab was interesting because I normally code as an ends to a mean. This was probably the first time I tried to code with attention to....coding style?? [Here is my readme and analysis of my code](https://adaptive-market-2e2.notion.site/Lab-1-4f29903228f84310a218fe68fed32818). The objective of the lab was to write our own stack data structure class from scratch and implement in translating expressions between pre/in/postfix formats.
