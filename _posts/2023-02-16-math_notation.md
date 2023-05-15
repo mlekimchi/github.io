@@ -9,7 +9,7 @@ My friend said he had created his own math notation! His notation worked perfect
 
 Turns out, there are other ways.
 
-### x-Fix expressions
+### Infix, Prefix, and Postfix expressions
 Our standard notation is called infix. We use parenthesis to indicate the order of operations. Operators are between the two operands.
 
 ```(A+B)*C```
