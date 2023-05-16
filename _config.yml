@@ -22,7 +22,7 @@ description: learning stats and stuff
 
 # List of links in the navigation bar
 navbar-links:
-  About Me: "https://github.com/mlekimchi/mlekimchi.github.io/aboutme.md/"
+  About Me: "https://github.com/mlekimchi/mlekimchi.github.io/aboutme/"
   Resources:
     - Beautiful Jekyll: "http://deanattali.com/beautiful-jekyll/"
     - Learn markdown: "http://www.markdowntutorial.com/"
